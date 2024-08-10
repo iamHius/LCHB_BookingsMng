@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@* <h1>Create</h1>
 
 <h4>BookingRoom</h4>
 <hr />
@@ -58,4 +58,82 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@
+
+<div id="booking">
+    <div class="container">
+        <div class="section-header">
+            <h2>Room Booking</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in mi libero. Quisque convallis, enim at venenatis tincidunt.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="booking-form">
+                    <div id="success"></div>
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <label asp-for="RoomId" class="control-label">Room ID</label>
+                                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
+                            </div>
+
+
+                            <div class="control-group col-sm-6">
+                                <label asp-for="RoomServiceId" class="control-label">Service ID</label>
+                                <select asp-for="RoomServiceId" class="form-control" asp-items="ViewBag.RoomServiceId"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <label asp-for="BookingFromDate" class="control-label">Booking From Date</label>
+                                <input asp-for="BookingFromDate" class="form-control" />
+                                <span asp-validation-for="BookingFromDate" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="control-group col-sm-6">
+                                <label asp-for="BookingToDate" class="control-label">Booking To Date</label>
+                                <input asp-for="BookingToDate" class="form-control" />
+                                <span asp-validation-for="BookingToDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <label asp-for="BookingDuration" class="control-label">Duration</label>
+                                <input asp-for="BookingDuration" class="form-control" />
+                                <span asp-validation-for="BookingDuration" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="control-group col-sm-6">
+                                <label asp-for="BookingEmail" class="control-label">Email Address</label>
+                                <input asp-for="BookingEmail" class="form-control" />
+                                <span asp-validation-for="BookingEmail" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        @* <div class="control-group">
+                        <label>Special Request</label>
+                        <input type="text" class="form-control" id="request" placeholder="E.g. Special Request" required="required" data-validation-required-message="Please enter your special request" />
+                        <p class="help-block text-danger"></p>
+                        </div> *@
+                        <div class="form-group"><input type="submit" value="Book Now" class="btn btn-primary" /></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
