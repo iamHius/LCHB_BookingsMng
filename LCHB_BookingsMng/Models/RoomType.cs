@@ -13,7 +13,7 @@ namespace LCHB_BookingsMng.Models
         public int RoomTypeNumber { get; set; }
         [StringLength(300)]
         public string? RoomTypeImage { get; set; }
-        [Column(TypeName = "decimal(8,2)")]
+        [Column(TypeName = "decimal(8,3)")]
         public decimal FeePerNight { get; set; }
     }
 }

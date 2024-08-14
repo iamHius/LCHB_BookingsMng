@@ -10,16 +10,18 @@ namespace LCHB_BookingsMng.Models
         [ForeignKey("Room")]
         public int RoomId { get; set; }
         [ForeignKey("RoomService")]
-        public int RoomServiceId { get; set; }
-        public int? RoomBookingServiceId { get; set; }
+        public int? RoomServiceId { get; set; } = null;
+        [ForeignKey("StatusPayment")]
+        public int? StatusPaymentId { get; set; } 
         public DateTime BookingFromDate { get; set; }
         public DateTime BookingToDate { get; set; }
-        public int? BookingDuration { get; set; }
         [Required]
         [EmailAddress]
         public string? BookingEmail { get; set; }
         public Room? RoomNav { get; set; }
-        public RoomService? RoomServiceNav { get; set; }
-        public BookingService? BookingServiceNav { get; set; }
+        public RoomService? RoomServiceNav { get; set; } 
+        public StatusPayment? StatusPaymentNav { get;set; }
+
+        
     }
 }

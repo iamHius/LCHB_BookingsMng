@@ -19,10 +19,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Room> Rooms { get; set; }
     public DbSet<RoomService> RoomServices { get; set; }
     public DbSet<BookingRoom> Bookings { get; set; }
-    public DbSet<BookingService> BookingsService { get; set; }
-    public DbSet<Bill> Bills { get; set; }
-    public DbSet<Payment> Payments { get; set; }
-
+    public DbSet<StatusPayment> StatusPayments { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

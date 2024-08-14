@@ -13,7 +13,7 @@ namespace LCHB_BookingsMng.Components
         }
         public IViewComponentResult Invoke()
         {
-            return View("Index",_context.Rooms.ToList());
+            return View("Index");
         }
     }
 }

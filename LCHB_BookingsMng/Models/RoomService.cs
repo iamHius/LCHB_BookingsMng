@@ -12,6 +12,6 @@ namespace LCHB_BookingsMng.Models
         public string? RoomServiceName { get; set; }
         [Column(TypeName = "decimal(8,2)")]
         public decimal RoomServicePrice { get; set; }
-        public int Quantity { get; set; }
+        
     }
 }
