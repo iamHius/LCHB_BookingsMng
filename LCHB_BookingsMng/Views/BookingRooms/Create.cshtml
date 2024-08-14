@@ -6,8 +6,8 @@
 
 
 
-<h4>Dat Phong</h4>
-<hr />
+@* <h4>Đặt Phòng</h4>
+<hr /> *@
 @* <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -46,9 +46,9 @@
     </div>
 </div> *@
 
-<div>
+@* <div>
     <a href="/Room/Index">Back to Room</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -97,6 +97,7 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Create" class="btn btn-primary" />
+                            
                         </div>
                     </form>
                 </div>

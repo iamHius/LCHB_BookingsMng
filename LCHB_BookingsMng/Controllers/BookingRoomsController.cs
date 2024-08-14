@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LCHB_BookingsMng.Areas.Identity.Data;
 using LCHB_BookingsMng.Models;
 
+
 namespace LCHB_BookingsMng.Controllers
 {
     public class BookingRoomsController : Controller

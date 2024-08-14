@@ -1,23 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Microsoft.AspNetCore.Identity
+@using LCHB_BookingsMng.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <!-- Header Section Start -->
 <header id="header">
-    <a href="index.html" class="logo"><img src="img/logo.jpg" alt="logo"></a>
-    <div class="phone"><i class="fa fa-phone"></i>+1 234 567 8900</div>
+    <a href="/Home/Index" class="logo"><img src="/img/logo.jpg" alt="logo"></a>
+    <div class="phone"><i class="fa fa-phone"></i>LCHB Team</div>
     <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
     <nav class="main-menu top-menu">
         <ul>
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="room.html">Rooms</a></li>
-            <li><a href="amenities.html">Amenities</a></li>
-            <li><a href="booking.html">Booking</a></li>
+            <li class="active"><a href="/Home/Index">Home</a></li>
+            <li><a href="/Rooms/Index">Room</a></li>
+            <li><a href="/BookingRooms/Create">Bookings</a></li>
+            <li><a href="/BookingServices/Index">Services</a></li>
+            @* <li>
+                <a href="/Identity/Account/Login">Login</a>
+            </li>
+            <li><a href="/Identity/Account/Register">Register</a></li> *@
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                </li>
+                <li>
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="btn btn-link">Logout</button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Identity/Account/Register">Register</a>
+                </li>
+                <li>
+                    <a href="/Identity/Account/Login">Login</a>
+                </li>
+            }
         </ul>
-        <partial name ="_LoginPartial" />
     </nav>
 </header>
 <!-- Header Section End -->

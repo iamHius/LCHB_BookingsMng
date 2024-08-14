@@ -1,8 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-
+@await Component.InvokeAsync("ImageWelcome")
+@await Component.InvokeAsync("SearchForm")
 @await Component.InvokeAsync("ServiceForm")
 @await Component.InvokeAsync("RoomForm")
 @await Component.InvokeAsync("BookingForm") 

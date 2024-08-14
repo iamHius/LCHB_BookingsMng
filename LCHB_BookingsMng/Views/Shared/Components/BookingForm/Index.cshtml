@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model LCHB_BookingsMng.Models.BookingRoom
 
 <div id="booking">
     <div class="container">
@@ -16,49 +12,38 @@
             <div class="col-12">
                 <div class="booking-form">
                     <div id="success"></div>
-                    <form name="sentMessage" id="bookingForm" novalidate="novalidate">
-                        <div class="form-row">
-                            <div class="control-group col-sm-6">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" id="fname" placeholder="E.g. John" required="required" data-validation-required-message="Please enter first name" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group col-sm-6">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" id="lname" placeholder="E.g. Sina" required="required" data-validation-required-message="Please enter last name" />
-                                <p class="help-block text-danger"></p>
-                            </div>
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="RoomId" class="control-label"></label>
+                            <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
                         </div>
-                        <div class="form-row">
-                            <div class="control-group col-sm-6">
-                                <label>Mobile</label>
-                                <input type="text" class="form-control" id="mobile" placeholder="E.g. +1 234 567 8900" required="required" data-validation-required-message="Please enter your mobile number" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group col-sm-6">
-                                <label>Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="E.g. email@example.com" required="required" data-validation-required-message="Please enter your email" />
-                                <p class="help-block text-danger"></p>
-                            </div>
+                        <div class="form-group">
+                            <label asp-for="RoomServiceId" class="control-label"></label>
+                            <select asp-for="RoomServiceId" class="form-control" asp-items="ViewBag.RoomServiceId"></select>
                         </div>
-                        <div class="form-row">
-                            <div class="control-group col-sm-6">
-                                <label>Check-In</label>
-                                <input type="text" class="form-control datetimepicker-input" id="date-1" data-toggle="datetimepicker" data-target="#date-1" placeholder="E.g. MM/DD/YYYY" required="required" data-validation-required-message="Please enter date" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group col-sm-6">
-                                <label>Check-Out</label>
-                                <input type="text" class="form-control datetimepicker-input" id="date-2" data-toggle="datetimepicker" data-target="#date-2" placeholder="E.g. MM/DD/YYYY" required="required" data-validation-required-message="Please enter date" />
-                                <p class="help-block text-danger"></p>
-                            </div>
+                        <div class="form-group">
+                            <label asp-for="StatusPaymentId" class="control-label"></label>
+                            <select asp-for="StatusPaymentId" class="form-control" asp-items="ViewBag.StatusPaymentId"></select>
                         </div>
-                        <div class="control-group">
-                            <label>Special Request</label>
-                            <input type="text" class="form-control" id="request" placeholder="E.g. Special Request" required="required" data-validation-required-message="Please enter your special request" />
-                            <p class="help-block text-danger"></p>
+                        <div class="form-group">
+                            <label asp-for="BookingFromDate" class="control-label"></label>
+                            <input asp-for="BookingFromDate" class="form-control" />
+                            <span asp-validation-for="BookingFromDate" class="text-danger"></span>
                         </div>
-                        <div class="button"><button type="submit" id="bookingButton">Book Now</button></div>
+                        <div class="form-group">
+                            <label asp-for="BookingToDate" class="control-label"></label>
+                            <input asp-for="BookingToDate" class="form-control" />
+                            <span asp-validation-for="BookingToDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BookingEmail" class="control-label"></label>
+                            <input asp-for="BookingEmail" class="form-control" />
+                            <span asp-validation-for="BookingEmail" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <a href="~/BookingRooms"><input type="submit" value="Đặt Ngay" class="btn btn-primary" /></a>
+                        </div>
                     </form>
                 </div>
             </div>

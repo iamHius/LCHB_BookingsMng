@@ -4,33 +4,33 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Danh Sách Đặt Phòng</h1>
 
-<p>
+@* <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p> *@
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BookingFromDate)
+                @* @Html.DisplayNameFor(model => model.BookingFromDate) *@ Ngày Đến
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingToDate)
+                @* @Html.DisplayNameFor(model => model.BookingToDate) *@ Ngày Đi 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingEmail)
+                @* @Html.DisplayNameFor(model => model.BookingEmail) *@ Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RoomNav)
+                @* @Html.DisplayNameFor(model => model.RoomNav) *@ Phòng
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RoomServiceNav)
+                @* @Html.DisplayNameFor(model => model.RoomServiceNav) *@ Dịch Vụ 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StatusPaymentNav)
+                @* @Html.DisplayNameFor(model => model.StatusPaymentNav) *@ Trạng Thái
             </th>
-            <th></th>
+            <th>Quyền</th>
         </tr>
     </thead>
     <tbody>
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.StatusPaymentNav.PaymentStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
+                @* <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> | *@
+                <a asp-action="Details" asp-route-id="@item.BookingId">Chi Tiết</a> |
+                @* <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a> *@
             </td>
         </tr>
 }
