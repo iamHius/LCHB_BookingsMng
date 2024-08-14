@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LCHB_BookingsMng.Areas.Identity.Data;
 using LCHB_BookingsMng.Models;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace LCHB_BookingsMng.Controllers
@@ -28,6 +29,7 @@ namespace LCHB_BookingsMng.Controllers
         }
 
         // GET: BookingRooms/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,6 +51,7 @@ namespace LCHB_BookingsMng.Controllers
         }
 
         // GET: BookingRooms/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomName");
@@ -62,6 +65,7 @@ namespace LCHB_BookingsMng.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("BookingId,RoomId,RoomServiceId,StatusPaymentId,BookingFromDate,BookingToDate,BookingEmail")] BookingRoom bookingRoom)
         {
             if (ModelState.IsValid)
@@ -77,6 +81,7 @@ namespace LCHB_BookingsMng.Controllers
         }
 
         // GET: BookingRooms/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -100,6 +105,7 @@ namespace LCHB_BookingsMng.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("BookingId,RoomId,RoomServiceId,StatusPaymentId,BookingFromDate,BookingToDate,BookingEmail")] BookingRoom bookingRoom)
         {
             if (id != bookingRoom.BookingId)
@@ -134,6 +140,7 @@ namespace LCHB_BookingsMng.Controllers
         }
 
         // GET: BookingRooms/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -157,6 +164,7 @@ namespace LCHB_BookingsMng.Controllers
         // POST: BookingRooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var bookingRoom = await _context.Bookings.FindAsync(id);
